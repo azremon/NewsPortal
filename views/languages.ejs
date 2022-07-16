@@ -1,0 +1,173 @@
+<!-- Topbar Start -->
+
+<!-- Topbar End -->
+
+
+<!-- Menubar Start -->
+<div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 display-4 text-uppercase text-primary">coding<span
+                    class="text-white font-weight-normal">News</span></h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav mr-auto py-0">
+                <a href="admin_home" class="nav-item nav-link">Home</a>
+
+                <!-- <a href="edit_news.html" class="nav-item nav-link active">Edit Newses</a> -->
+                <div class="dropdown">
+                    <a class="nav-item"
+                        style="display: block; color: aliceblue; text-transform: uppercase; font-weight: 500; text-decoration: none; padding: 20px 10px 20px 10px;">Edit
+                        Newses
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="/breaking_news">Breaking News</a>
+                        <a href="/latest_news">Latest News</a>
+                        <a href="/weeks_news">Weeks News</a>
+                        <a href="/all_news">All News</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="nav-item nav-link">Languages</a>
+                <a href="/edit_contact" class="nav-item nav-link">Update Contact</a>
+            </div>
+            <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
+                <input type="text" class="form-control border-0" placeholder="Keyword">
+                <div class="input-group-append">
+                    <button class="input-group-text bg-primary text-dark border-0 px-3"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Menubar End -->
+
+
+
+<div class="container-fluid  px-sm-3 px-md-5"
+    style="background: #111111; margin-top: 20px; padding-top: 10px; padding-bottom: 10px;">
+    <h5 class="m-0 text-center active" style="color: #FFCC00; text-transform: uppercase; font-weight: bold;">
+        Language/Frameworks</h5>
+
+</div>
+
+
+
+
+<div class="container" style="border: 3px solid grey; border-radius: 10px ; margin-top: 20px; margin-bottom: 20px;">
+    <div class="row" style=" font-size: 25px; color: #111111;">
+        <div class="col-xl-12">
+            <p><u>Insert New Language Name :</u></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12">
+            <form class="form-inline" action="/insert_lang" method="post"
+                style="margin-left: 35%; margin-top: 15px; margin-bottom: 30px;">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label class="sr-only">Language Name : </label>
+                    <input type="text" class="form-control" id="" name="lang_name" placeholder="Name of the Language">
+                    <input type="hidden" id="id">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">INSERT</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" style="font-size: 25px; color: #111111;">
+        <div class=" col-xl-12">
+        <p><u>List of Languages Inserted :</u></p>
+    </div>
+</div>
+</div>
+
+<div class="container">
+    <div class="row" style="color: #111111;" >
+        <div class="col-xl-12">
+
+
+            <table class="table" style="color: #111111;" >
+                <thead>
+                    <tr>
+                        <th>Language</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% if(language.length>0){%>
+                        <%language.forEach(language=>{ %>
+                            <tr>
+                                <td>
+                                    <%= language.lang_name%>
+                                </td>
+                                <td>
+                                    <a href="/delete_language/<%= language.id%>" onclick="javascript:return confirm('Are you sure you want to DELETE this ?')"
+                                        class="btn btn-danger btn-sm">DELETE</a>
+                                </td>
+                            </tr>
+                            <%})%>
+                                <% } else { %>
+                                    <p> No  Data To Show</p>
+                                    <%}%>
+                </tbody>
+
+            </table>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Language</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>fghj</td>
+            <td><a href="/delete/" class="btn btn-primary btn-sm">DELETE</a></td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+
+
+<div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
+    <p class="m-0 text-center">&copy; <a href="#">DailyNews</a>. &reg; All Rights Reserved.
+
+</div>
+
+
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="assets/lib/easing/easing.min.js"></script>
+<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="assets/js/main.js"></script>

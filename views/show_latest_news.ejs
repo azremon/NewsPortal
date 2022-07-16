@@ -1,0 +1,174 @@
+<!-- Topbar Start -->
+
+<!-- Topbar End -->
+
+
+<!-- Menubar Start -->
+<div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 display-4 text-uppercase text-primary">Daily<span
+                    class="text-white font-weight-normal">News</span></h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav mr-auto py-0">
+                <a href="admin_home" class="nav-item nav-link">Home</a>
+
+                <!-- <a href="edit_news.html" class="nav-item nav-link active">Edit Newses</a> -->
+                <div class="dropdown">
+                    <a class="nav-item"
+                        style="display: block; color: aliceblue; text-transform: uppercase; font-weight: 500; text-decoration: none; padding: 20px 10px 20px 10px;">Edit
+                        Newses
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="/breaking_news">Breaking News</a>
+                        <a href="#">Latest News</a>
+                        <a href="/weeks_news">Weeks News</a>
+                        <a href="/all_news">All News</a>
+                    </div>
+                </div>
+                <a href="/see_languages" class="nav-item nav-link">Languages</a>
+                <a href="/edit_contact" class="nav-item nav-link">Update Contact</a>
+            </div>
+            <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
+                <input type="text" class="form-control border-0" placeholder="Keyword">
+                <div class="input-group-append">
+                    <button class="input-group-text bg-primary text-dark border-0 px-3"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Menubar End -->
+
+
+
+<div class="container-fluid  px-sm-3 px-md-5"
+    style="background: #111111; margin-top: 20px; padding-top: 10px; padding-bottom: 10px;">
+    <h5 class="m-0 text-center active" style="color: #FFCC00; text-transform: uppercase; font-weight: bold;">LATEST Newses</h5>
+
+</div>
+
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row" style="margin:0px 70px 0px 70px ;">
+        <div class="col-xl-11">
+
+        </div>
+        <div class="col-xl-1">
+            <div class="admin-action" style="width: 150px; margin-right: 30px;">
+                <a href="create_latest_news">Create New</a>
+            </div>
+        </div>
+    </div>
+
+    <% if(latest.length>0){%>
+        <%latest.forEach(latest=>{ %>
+            <div class="row"
+                style="padding: 0px 10px 20px 10px;background-color: whitesmoke; padding: 0px 10px 20px 10px; margin: 40px; height: 200px">
+                <div class="col-md-11" style="height: 40px; ">
+
+                    <div class="row">
+                        <div class="col-md-4" style="height: 200px; ">
+                            <div class="breaking-content-img">
+                                <img src="" alt="">
+                            </div>
+
+                        </div>
+                        <div class="col-md-7" style=" height: 200px; ">
+                            <div class="row">
+                                <div class="row pt-3 pl-4" >
+                                    <p style="float: left; color: #ffcc00; background-color: #111111;font-size: 12px; padding: 5px 5px 5px 5px; font-weight: bold;">
+                                        <%= latest.language%>
+                                    </p>
+                                    <p style="text-align: right; padding: 0px 0px 0px 40px; font-size: 14px; float:right; margin-bottom: 0px; " >
+                                        <%= latest.date_of_post%>
+                                    </p>
+                                </div>
+                                <div class="breaking-headline headlines">
+                                    <a href="/single_latest/<%= latest.id%>" target="_blank">
+                                        <h3>
+                                            <%= latest.latest_news_headline%>
+                                        </h3>
+                                    </a>
+                                </div>
+                                <div class="slider_details headlines_details" style="text-decoration: none;">
+                                    <p>
+                                        <%= latest.latest_news_details%>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-1" style=" height: 200px; ">
+                            <div class="row">
+                                <div class="ref-link"
+                                    style="text-align: center; font-size: 12px; padding: 10px 10px 10px 10px; display: block;">
+                                    <p>Link:</p>
+                                    <a href="<%= latest.ref_link %>" target="popup"
+                                        onclick="window.open('<%= latest.ref_link %>','popup','width=600,height=600'); return false;">Click Here</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="comments">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-1" style="height: 200px; ">
+                    <div class="row">
+                        <div class="admin-action" style="margin-top: 30px;">
+                            <a href="/edit_latest/<%=latest.id%>">Edit</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="admin-action" style="margin-top: 10px;">
+                            <a href="/delete_latest/<%=latest.id%>"  onclick="javascript:return confirm('Are you sure! You want to DELETE ?')">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%})%>
+                <%}%>
+</div>
+
+
+
+
+
+
+
+
+<div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
+    <p class="m-0 text-center">&copy; <a href="#">DailyNews</a>. &reg; All Rights Reserved.
+
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="assets/lib/easing/easing.min.js"></script>
+<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="assets/js/main.js"></script>

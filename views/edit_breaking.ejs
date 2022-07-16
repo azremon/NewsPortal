@@ -1,0 +1,190 @@
+<!-- Topbar Start -->
+
+<!-- Topbar End -->
+
+
+<!-- Menubar Start -->
+<div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <h1 class="m-0 display-4 text-uppercase text-primary">Coding<span
+                    class="text-white font-weight-normal">News</span></h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav mr-auto py-0">
+                <a href="/admin_home" class="nav-item nav-link">Home</a>
+
+
+                <!-- <a href="edit_news.html" class="nav-item nav-link active">Edit Newses</a> -->
+                <div class="dropdown">
+                    <a class="nav-item"
+                        style="display: block; color: aliceblue; text-transform: uppercase; font-weight: 500; text-decoration: none; padding: 20px 10px 20px 10px;">Edit
+                        Newses
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="/breaking_news">Breaking News</a>
+                        <a href="/latest_news">Latest News</a>
+                        <a href="#">Weeks News</a>
+                        <a href="#">All News</a>
+                    </div>
+                </div>
+                <a href="/see_languages" class="nav-item nav-link">Languages</a>
+                <a href="edit_contact" class="nav-item nav-link">Update Contact</a>
+            </div>
+            <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
+                <input type="text" class="form-control border-0" placeholder="Keyword">
+                <div class="input-group-append">
+                    <button class="input-group-text bg-primary text-dark border-0 px-3"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Menubar End -->
+
+
+
+
+
+
+<!-- Create Breaking Start here -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="create-form">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <h2 class="panel-title" style="padding: 20px 0px 20px 0px ;">Edit Breaking News</h2>
+                    </header>
+
+
+                    <div class="panel-body">
+                                <form action="/update_single_breaking/<%=breaking.id%>" method='post'
+                                    class="form-horizontal form-bordered">
+
+                                    <div class="form-group">
+                                        <label class="control-label" style="padding-right: 20px; ">Framework:
+                                            <select name="language" id="">
+                                                    <option value="Python">PYTHON</option>
+                                                    <option value="Django">Django</option>
+                                                    <option value="Falcon">Falcon</option>
+                                                    <option value="Flask">Flask</option>
+                                                    <option value="AIOHTTP">AIOHTTP</option>
+                                                    <option value="NodeJS">NodeJS</option>
+                                                    <option value="ReactJS">ReactJS</option>
+                                                    <option value="NextJS">NextJS</option>
+                                                    <option value="MERN">MERN</option>
+                                                    <option value="LARAVEL">LARAVEL</option>
+                                                    <option value="WordPress">WordPress</option>
+                                                    <option value="CodeIgniter">CodeIgniter</option>
+                                                    <option value="Symfony">Symfony</option>
+                                                    <option value="CakePHP">CakePHP</option>
+                                            </select>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" style="padding-right: 20px; ">Date of Post :
+                                            <input type="date" name="date_of_post" id="" value="<%=breaking.date_of_post%>">
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" style="padding-right: 20px; ">Headline :
+                                        </label>
+                                        <div>
+                                            <textarea id="" name="slider_headline" rows="3" cols="20">
+                                                <%=breaking.slider_headline%>
+                                            </textarea>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label" style="padding-right: 20px; ">Reference :
+                                            <input type="text" style="font-size: 14px;" name="ref_link"
+                                                placeholder="Paste link here....." id="" value="<%=breaking.ref_link%>">
+                                        </label>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label" style="padding-right: 20px; ">Details :
+                                        </label>
+                                        <div>
+                                            <textarea id="" name="slider_details" rows="6" cols="60"
+                                                style="font-size: 14px;">
+                                                <%=breaking.slider_details%>
+                                    </textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div>
+                                            <input type="hidden" id="<%= breaking.id %>">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="control-label" style="padding-right: 20px">Image :
+                                            <input type="file" name="slider_img_name" class="form-control"
+                                                onchange="document.getElementById('slider_img_name').src = window.URL.createObjectURL(this.files[0])" value="<%=breaking.slider_img_name%>">
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="">
+                                            <label class="col-sm-4 control-label">
+                                                <img alt="" id="slider_img_name" width="155" height="200">
+                                        </div>
+                                        </label>
+                                    </div>
+
+                                    <input type="submit" class="btn btn-primary btn-sm mb-3" value="Submit">
+
+                                    <button type="reset" class="btn btn-warning btn-sm mb-3">RESET</button>
+
+
+
+                                    <!-- <footer class="panel-footer" style="margin-bottom: 30px;">
+                                    <button type="reset" class="btn btn-warning btn-sm">RESET</button>
+                                </footer> -->
+
+                                </form>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
+    <p class="m-0 text-center">&copy; <a href="#">DailyNews</a>. &reg; All Rights Reserved.
+
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="assets/lib/easing/easing.min.js"></script>
+<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="assets/js/main.js"></script>
